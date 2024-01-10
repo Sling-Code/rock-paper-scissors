@@ -3,10 +3,14 @@ function getComputerChoice(options) {
     return options[index];
 }
 
-let options = ["Rock", "Paper", "Scissors"];
+let options = ["rock", "paper", "scissors"];
+
+
+let computerSelection = getComputerChoice(["rock", "paper", "scissors"]);
+
 
 //grabs a choice from the player and the computer and determine win, lose, or draw
-function playRound (playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     if ((playerSelection === "rock" && computerSelection === "scissors") 
     || (playerSelection === "paper" && computerSelection === "rock")
     || (playerSelection === "scissors" && computerSelection === "paper")) {
@@ -18,7 +22,13 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-
-let playerSelection = prompt("Choose Rock, Paper or Scissors");
-let computerSelection = getComputerChoice(options);
+function game() {
+    for (i = 1 ; i <= 5 ; i++) {
+    let playerSelection = prompt("Choose Rock, Paper or Scissors");  
+    getComputerChoice(options);
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playerSelection, computerSelection)
+    }
+}
     
+game();
