@@ -1,6 +1,6 @@
 function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
-}
+};
 
 let options = ["rock", "paper", "scissors"];
 
@@ -24,8 +24,8 @@ function playRound(playerSelection, computerSelection) {
 
 //gets input from the user and computer and plays through five iterations of the playRound function
 function game() {
-    for (i = 1 ; i <= 5 ; i++) {
-    let playerSelection = prompt("Choose Rock, Paper or Scissors"); 
+    for (i = 1 ; i >= 0 ; i++) {
+    let playerSelection;
     let computerSelection = getComputerChoice();    
     console.log(playerSelection, computerSelection)
 
@@ -47,3 +47,12 @@ function final() {
 }
 
 final();
+
+//UI
+const rockBtn = document.getElementById('rockBtn');
+const paperBtn = document.getElementById('paperBtn');
+const scissorBtn = document.getElementById('scissorBtn');
+
+rockBtn.addEventListener(click, () => playRound('rock', computerSelection));
+paperBtn.addEventListener(click, () => playRound('paper', computerSelection));
+scissorBtn.addEventListener(click, () => playRound('scissors', computerSelection));
