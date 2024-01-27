@@ -23,9 +23,10 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //gets input from the user and computer and plays through five iterations of the playRound function
+/*
 function game() {
     for (i = 1 ; i >= 0 ; i++) {
-    let playerSelection;
+    let playerSelection = prompt('Choose rock, paper, or scissors');
     let computerSelection = getComputerChoice();    
     console.log(playerSelection, computerSelection)
 
@@ -34,6 +35,7 @@ function game() {
 }  
 
 game();
+
 
 //tallies up wins and losses and announces the result
 function final() {
@@ -47,12 +49,13 @@ function final() {
 }
 
 final();
+*/
 
 //UI
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorBtn = document.getElementById('scissorBtn');
 
-rockBtn.addEventListener(click, () => playRound('rock', computerSelection));
-paperBtn.addEventListener(click, () => playRound('paper', computerSelection));
-scissorBtn.addEventListener(click, () => playRound('scissors', computerSelection));
+rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+paperBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+scissorBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
