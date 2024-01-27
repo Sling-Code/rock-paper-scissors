@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.buttons {
+    margin-bottom: 30px;
+}
+
+.buttons .btn {
+    font-size: 7rem;
+    min-width: 160px;
+    margin: 0 10px;
+    border-radius: 250px;
+
+}
+
+.buttons .btn:hover {
+    background-color: aqua;
+}
+
+#playerDisplay, #computerDisplay {
+    font-size: 2.5rem;
+}
+
+#resultDisplay {
+    font-size: 5rem;
+    margin-top: 30px;
+}

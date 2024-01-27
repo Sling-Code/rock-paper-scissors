@@ -3,7 +3,7 @@ function getComputerChoice() {
 };
 
 let options = ["rock", "paper", "scissors"];
-
+let result = ""
 let playerScore = 0;
 let computerScore = 0;
 
@@ -12,15 +12,41 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") 
     || (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock")
     || (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper")) {
-        console.log("You Won the Round!");
+        result = "You Won the Round!";
         playerScore++;
     } else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-        console.log("It's a Draw!");
+        result = "It's a Draw!";
     } else {
-        console.log("You Lost the Round!");
+        result = "You Lost the Round!";
         computerScore++;
     }
+
+    resultDisplay.textContent = result;
 }
+
+//UI
+const rockBtn = document.getElementById('rockBtn');
+const paperBtn = document.getElementById('paperBtn');
+const scissorBtn = document.getElementById('scissorBtn');
+const resultDisplay = document.getElementById('resultDisplay')
+
+rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+paperBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+scissorBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //gets input from the user and computer and plays through five iterations of the playRound function
 /*
@@ -50,12 +76,3 @@ function final() {
 
 final();
 */
-
-//UI
-const rockBtn = document.getElementById('rockBtn');
-const paperBtn = document.getElementById('paperBtn');
-const scissorBtn = document.getElementById('scissorBtn');
-
-rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
-paperBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
-scissorBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
