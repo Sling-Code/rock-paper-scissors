@@ -36,18 +36,6 @@ scissorBtn.addEventListener('click', () => playRound("rock", getComputerChoice()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //gets input from the user and computer and plays through five iterations of the playRound function
 /*
 function game() {
