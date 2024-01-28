@@ -1,3 +1,4 @@
+//Game
 function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
 };
@@ -22,13 +23,54 @@ function playRound(playerSelection, computerSelection) {
     }
 
     resultDisplay.textContent = result;
+    playerScoreDisplay.textContent = `Player: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+
+    checkWinner();
+}
+
+function checkWinner() {
+    if (playerScore === 5) {
+        result = 'You Won the Game';
+        updateResultDisplay(true);
+        resetGame();
+    } else if (computerScore === 5) {
+        result = 'You Lost the Game';
+        updateResultDisplay(false);
+        resetGame();
+    }
+}
+
+function resetGame() {
+    resultDisplay.textContent = result;
+
+    setTimeout(() => { // Delay the reset for a better user experience
+        playerScore = 0;
+        computerScore = 0;
+        playerScoreDisplay.textContent = `Player: ${playerScore}`;
+        computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+        resultDisplay.style.color = ""; // Reset color to default
+        result= 'Play Again'
+        resultDisplay.textContent = result;
+    }, 3000);
+}
+
+// Function to update the style of resultDisplay based on the winner
+function updateResultDisplay(playerWon) {
+    if (playerWon) {
+        resultDisplay.style.color = "green"; // Set color to green for player win
+    } else {
+        resultDisplay.style.color = "red"; // Set color to red for player loss
+    }
 }
 
 //UI
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorBtn = document.getElementById('scissorBtn');
-const resultDisplay = document.getElementById('resultDisplay')
+const resultDisplay = document.getElementById('resultDisplay');
+const playerScoreDisplay = document.getElementById('playerScoreDisplay');
+const computerScoreDisplay = document.getElementById('computerScoreDisplay');
 
 rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
 paperBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
